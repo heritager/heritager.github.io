@@ -1,0 +1,28 @@
+# Jekyll & Generated Files
+/_site/
+/.jekyll-cache/
+/.sass-cache/
+*.gem
+/.bundle/
+/vendor
+
+# Logs
+jekyll.drone.yml.log
+
+# Environment
+.env
+.env.local
+
+# Node
+node_modules/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
