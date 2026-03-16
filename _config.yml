@@ -1,2 +1,50 @@
-source: "."
-destination: ./_site
+# Site settings
+title: CS Life
+SEOTitle: CS Life | heritager's Blog
+header-img: img/post-bg-desk.jpg
+email: ""
+description: "喜欢CS的财税人生"
+keyword: "CS Life, heritager, 计算机, 财税"
+url: "https://heritager.github.io"
+baseurl: ""
+github_repo: "https://github.com/heritager/heritager.github.io"
+
+# Sidebar settings
+sidebar: true
+sidebar-about-description: "喜欢CS的财税人生"
+sidebar-avatar: /img/avatar-by.jpg
+
+# SNS settings
+RSS: false
+twitter_username: soyonimo
+zhihu_username:   夜皎兮
+github_username:  heritager
+
+# Build settings
+permalink: pretty
+paginate: 10
+exclude: ["less", "node_modules", "Gruntfile.js", "package.json", "README.md"]
+anchorjs: true
+
+# Gems / Plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-feed
+
+# Markdown settings
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+
+# Featured Tags
+featured-tags: true
+featured-condition-size: 1
+
+# Friends
+friends: [
+    {
+        title: "GitHub",
+        href: "https://github.com/heritager"
+    }
+]

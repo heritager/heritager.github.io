@@ -1,10 +1,8 @@
 # frozen_string_literal: true
 
-source "C:\Users\zzxxd\dev\projects\github\heritager.github.io"
+source "https://rubygems.org"
 
-source = "."
-destination = "./_site"
-gem "jekyll", "~> 4.0"
-gem "minima", "~> 2.5"
-gem "jekyll-feed", "~> 0.12"
+gem "jekyll", "~> 4.3"
+gem "jekyll-paginate"
+gem "jekyll-feed"
 gem "webrick", "~> 1.7"
