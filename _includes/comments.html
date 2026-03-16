@@ -1,0 +1,43 @@
+{% if site.features.comments %}
+    {% if site.comments.provider == 'gitalk' %}
+        {% assign gitalk = site.comments.gitalk %}
+        {% if gitalk.client_id != '' and gitalk.client_secret != '' and gitalk.repo != '' and gitalk.owner != '' and gitalk.admin != '' %}
+        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+        <script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
+        <div id="gitalk-container"></div>
+        <script src="{{ '/js/md5.min.js' | relative_url }}"></script>
+        <script type="text/javascript">
+            var gitalk = new Gitalk({
+                clientID: '{{ gitalk.client_id }}',
+                clientSecret: '{{ gitalk.client_secret }}',
+                repo: '{{ gitalk.repo }}',
+                owner: '{{ gitalk.owner }}',
+                admin: ['{{ gitalk.admin }}'],
+                distractionFreeMode: {{ gitalk.distraction_free_mode | jsonify }},
+                id: md5(location.pathname)
+            });
+            gitalk.render('gitalk-container');
+        </script>
+        {% endif %}
+    {% elsif site.comments.provider == 'disqus' %}
+        {% assign disqus = site.comments.disqus %}
+        {% if disqus.shortname != '' %}
+        <div class="comment">
+            <div id="disqus_thread" class="disqus-thread"></div>
+        </div>
+        <script type="text/javascript">
+            var disqus_shortname = '{{ disqus.shortname }}';
+            var disqus_identifier = '{{ page.id }}';
+            var disqus_url = '{{ page.url | absolute_url }}';
+
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        {% endif %}
+    {% endif %}
+{% endif %}

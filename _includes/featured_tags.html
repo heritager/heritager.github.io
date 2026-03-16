@@ -1,0 +1,16 @@
+{% if site.features.featured_tags %}
+{% assign featured_tag_min = site.featured_tag_min | default: 0 %}
+<section>
+    <hr class="hidden-sm hidden-xs">
+    <h5><a href="{{ '/tags/' | relative_url }}">FEATURED TAGS</a></h5>
+    <div class="tags">
+        {% for tag in site.tags %}
+            {% if tag[1].size > featured_tag_min %}
+                <a href="{{ '/tags/' | relative_url }}#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
+                    {{ tag[0] }}
+                </a>
+            {% endif %}
+        {% endfor %}
+    </div>
+</section>
+{% endif %}

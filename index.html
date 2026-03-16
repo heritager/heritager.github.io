@@ -1,11 +1,12 @@
 ---
 layout: page
-description: "喜欢CS的财税人生"
+description: "喜欢 CS 的财税人生"
 ---
 
-{% for post in paginator.posts %}
+{% assign posts = paginator.posts | default: site.posts %}
+{% for post in posts %}
 <div class="post-preview">
-    <a href="{{ post.url | prepend: site.baseurl }}">
+    <a href="{{ post.url | relative_url }}">
         <h2 class="post-title">
             {{ post.title }}
         </h2>
@@ -15,32 +16,27 @@ description: "喜欢CS的财税人生"
         </h3>
         {% endif %}
         <div class="post-content-preview">
-            {{ post.content | strip_html | truncate:200 }}
+            {{ post.content | strip_html | truncate: 200 }}
         </div>
     </a>
     <p class="post-meta">
-        {% if post.author %}
-        Posted by {{ post.author }}
-        {% else %}
-        Posted by {{ site.title }}
-        {% endif %}
+        Posted by {{ post.author | default: site.author.name | default: site.title }}
         on {{ post.date | date: "%Y年%-m月%-d日" }}
     </p>
 </div>
 <hr>
 {% endfor %}
 
-<!-- Pager -->
-{% if paginator.total_pages > 1 %}
+{% if paginator and paginator.total_pages > 1 %}
 <ul class="pager">
     {% if paginator.previous_page %}
     <li class="previous">
-        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; 更新文章</a>
+        <a href="{{ paginator.previous_page_path | relative_url }}">&larr; 更新文章</a>
     </li>
     {% endif %}
     {% if paginator.next_page %}
     <li class="next">
-        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">历史文章 &rarr;</a>
+        <a href="{{ paginator.next_page_path | relative_url }}">历史文章 &rarr;</a>
     </li>
     {% endif %}
 </ul>

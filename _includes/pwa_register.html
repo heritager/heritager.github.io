@@ -1,0 +1,14 @@
+{% if site.features.pwa %}
+<script type="text/javascript">
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+            .register('{{ "/sw.js" | relative_url }}')
+            .then(function (registration) {
+                console.log('Service Worker Registered.', registration);
+            })
+            .catch(function (error) {
+                console.log('Service Worker registration failed:', error);
+            });
+    }
+</script>
+{% endif %}

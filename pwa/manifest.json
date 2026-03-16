@@ -1,19 +1,25 @@
+---
+layout: null
+---
 {
-  "name": "BY Blog",
-  "short_name": "BY Blog",
-  "description": "A personal blog by engineer",
-  "icons": [{
-    "src": "icons/pwa_icon_128.png",
-    "sizes": "128x128",
-    "type": "image/png"
-  }, {
-    "src": "icons/pwa_icon_512.png",
-    "sizes": "512x512",
-    "type": "image/png"
-  }],
-  "background_color": "#fff",
-  "theme_color": "#000",
-  "start_url": "/",
+  "name": {{ site.pwa.app_name | jsonify }},
+  "short_name": {{ site.pwa.app_short_name | jsonify }},
+  "description": {{ site.pwa.description | jsonify }},
+  "icons": [
+    {
+      "src": {{ "/pwa/icons/pwa_icon_128.png" | relative_url | jsonify }},
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": {{ "/pwa/icons/pwa_icon_512.png" | relative_url | jsonify }},
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "background_color": {{ site.pwa.background_color | jsonify }},
+  "theme_color": {{ site.pwa.theme_color | jsonify }},
+  "start_url": {{ "/" | relative_url | jsonify }},
   "display": "standalone",
   "orientation": "portrait"
 }

@@ -1,0 +1,29 @@
+---
+layout: page
+title: "归档"
+description: "按时间顺序浏览所有文章"
+header-img: "img/post-bg-universe.jpg"
+---
+
+<div class="post-container">
+    {% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+    {% for year in posts_by_year %}
+    <div class="one-tag-list">
+        <span class="fa fa-calendar listing-seperator" id="{{ year.name }}">
+            <span class="tag-text">{{ year.name }}</span>
+        </span>
+        {% for post in year.items %}
+        <div class="post-preview">
+            <a href="{{ post.url | relative_url }}">
+                <h2 class="post-title">{{ post.title }}</h2>
+                {% if post.subtitle %}
+                <h3 class="post-subtitle">{{ post.subtitle }}</h3>
+                {% endif %}
+            </a>
+            <p class="post-meta">{{ post.date | date: "%Y年%-m月%-d日" }}</p>
+        </div>
+        <hr>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</div>

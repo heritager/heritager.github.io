@@ -1,50 +1,91 @@
 # Site settings
 title: CS Life
-SEOTitle: CS Life | heritager's Blog
-header-img: img/post-bg-desk.jpg
-email: ""
-description: "喜欢CS的财税人生"
-keyword: "CS Life, heritager, 计算机, 财税"
+seo_title: CS Life | heritager
+description: "喜欢 CS 的财税人生"
+keywords:
+  - CS Life
+  - heritager
+  - 计算机
+  - 财税
 url: "https://heritager.github.io"
 baseurl: ""
-github_repo: "https://github.com/heritager/heritager.github.io"
+language: "zh-CN"
+repository_url: "https://github.com/heritager/heritager.github.io"
+header_image: "img/post-bg-desk.jpg"
+theme_color: "#000000"
 
-# Sidebar settings
-sidebar: true
-sidebar-about-description: "喜欢CS的财税人生"
-sidebar-avatar: /img/avatar-by.jpg
+# Author settings
+author:
+  name: "heritager"
+  email: ""
+  bio: "喜欢 CS 的财税人生"
+  avatar: "/img/avatar-by.jpg"
 
-# SNS settings
-RSS: false
-twitter_username: soyonimo
-zhihu_username:   夜皎兮
-github_username:  heritager
+# Social settings
+social:
+  github: "heritager"
+  x: "soyonimo"
+  zhihu: "夜皎兮"
+
+# Feature flags
+features:
+  sidebar: true
+  featured_tags: true
+  comments: false
+  analytics: false
+  pwa: false
+  anchorjs: true
+  rss: true
+
+featured_tag_min: 1
+
+# Optional integrations
+comments:
+  provider: "gitalk"
+  gitalk:
+    client_id: ""
+    client_secret: ""
+    repo: ""
+    owner: ""
+    admin: ""
+    distraction_free_mode: true
+  disqus:
+    shortname: ""
+
+analytics:
+  google:
+    measurement_id: ""
+  baidu:
+    tracking_id: ""
+
+pwa:
+  app_name: "CS Life"
+  app_short_name: "CS Life"
+  description: "记录 CS 学习、技术笔记和生活感悟的个人博客"
+  background_color: "#ffffff"
+  theme_color: "#000000"
+
+# Sidebar extras
+friends:
+  - title: "GitHub"
+    href: "https://github.com/heritager"
 
 # Build settings
 permalink: pretty
 paginate: 10
-exclude: ["less", "node_modules", "Gruntfile.js", "package.json", "README.md"]
-anchorjs: true
-
-# Gems / Plugins
-plugins:
-  - jekyll-paginate
-  - jekyll-feed
-
-# Markdown settings
+paginate_path: "/page/:num/"
 markdown: kramdown
 highlighter: rouge
 kramdown:
   input: GFM
-
-# Featured Tags
-featured-tags: true
-featured-condition-size: 1
-
-# Friends
-friends: [
-    {
-        title: "GitHub",
-        href: "https://github.com/heritager"
-    }
-]
+plugins:
+  - jekyll-paginate
+  - jekyll-feed
+feed:
+  path: feed.xml
+exclude:
+  - less
+  - node_modules
+  - Gruntfile.js
+  - package.json
+  - README.md

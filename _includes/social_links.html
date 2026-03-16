@@ -1,0 +1,42 @@
+<ul class="list-inline text-center">
+    {% if site.features.rss %}
+    <li>
+        <a href="{{ '/feed.xml' | relative_url }}">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
+    </li>
+    {% endif %}
+    {% if site.social.x %}
+    <li>
+        <a target="_blank" href="https://x.com/{{ site.social.x }}">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-stack-1x fa-inverse" style="font-style:normal;font-weight:bold;font-size:14px;">X</i>
+            </span>
+        </a>
+    </li>
+    {% endif %}
+    {% if site.social.zhihu %}
+    <li>
+        <a target="_blank" href="https://www.zhihu.com/people/{{ site.social.zhihu }}">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-stack-1x fa-inverse">知</i>
+            </span>
+        </a>
+    </li>
+    {% endif %}
+    {% if site.social.github %}
+    <li>
+        <a target="_blank" href="https://github.com/{{ site.social.github }}">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
+    </li>
+    {% endif %}
+</ul>
